@@ -79,6 +79,21 @@ const addIntern = [
 const menu = {
     type: 'list',
     name: 'menu',
-    message: 'Would you like to add an engineer or an intern or to finish building your team',
+    message: 'Would you like to add an Engineer or an Intern or to finish building your team',
     choices: ['Add Engineer', 'Add Intern', 'Finish building my team']
 }
+
+function getManagerInfo() {
+    inquirer.prompt(addManager)
+}
+
+function getEnginnerInfo() {
+    inquirer.promp(addEngineer)
+}
+function getInternInfo() {
+    inquirer.promp(addIntern)
+}
+function getMenu() {
+    inquirer.prompt(menu)
+}
+
