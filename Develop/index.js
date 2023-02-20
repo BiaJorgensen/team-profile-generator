@@ -97,8 +97,8 @@ function getManagerInfo() {
             }
         teamMembers.push(manager);
         console.log(teamMembers);
-        
-    });   
+        }
+    )  
 }
 
 
@@ -106,22 +106,35 @@ function getEnginnerInfo() {
     inquirer
     .prompt(addEngineer)
     .then((data) => {const engineer = {
-        name: data.name,
-        id: data.id,
-        email: data.email,
-        extraInfo: data.github,
-        role: 'Engineer'
+            name: data.name,
+            id: data.id,
+            email: data.email,
+            extraInfo: data.github,
+            role: 'Engineer'
+            }
+        teamMembers.push(engineer);
+        console.log(teamMembers);
         }
-    teamMembers.push(engineer);
-    console.log(teamMembers);
-    
-});   
+    )   
+}
 
-}
-getEnginnerInfo()
 function getInternInfo() {
-    inquirer.prompt(addIntern)
+    inquirer.
+    prompt(addIntern)
+    .then((data) => {const intern = {
+            name: data.name,
+            id: data.id,
+            email: data.email,
+            extraInfo: data.school,
+            role: 'Intern'
+            }
+        teamMembers.push(intern);
+        console.log(teamMembers);
+        }
+    )   
 }
+getInternInfo()
+
 function getMenu() {
     inquirer.prompt(menu)
 }
