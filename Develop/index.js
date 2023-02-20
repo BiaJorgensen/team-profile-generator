@@ -83,17 +83,35 @@ const menu = {
     choices: ['Add Engineer', 'Add Intern', 'Finish building my team']
 }
 
+const teamMembers = [];
+
 function getManagerInfo() {
-    inquirer.prompt(addManager)
+    inquirer
+    .prompt(addManager)
+    .then((data) => {const manager = {
+        name: data.name,
+        id: data.id,
+        email: data.email,
+        extraInfo: data.office_num,
+        role: 'Manager'
+    }
+    teamMembers.push(manager);
+    console.log(teamMembers);
+});
+    
 }
+getManagerInfo()
 
 function getEnginnerInfo() {
-    inquirer.promp(addEngineer)
+    inquirer.prompt(addEngineer)
 }
 function getInternInfo() {
-    inquirer.promp(addIntern)
+    inquirer.prompt(addIntern)
 }
 function getMenu() {
     inquirer.prompt(menu)
 }
 
+function init() {
+
+}
