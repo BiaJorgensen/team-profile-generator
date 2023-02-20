@@ -89,22 +89,36 @@ function getManagerInfo() {
     inquirer
     .prompt(addManager)
     .then((data) => {const manager = {
+            name: data.name,
+            id: data.id,
+            email: data.email,
+            extraInfo: data.office_num,
+            role: 'Manager'
+            }
+        teamMembers.push(manager);
+        console.log(teamMembers);
+        
+    });   
+}
+
+
+function getEnginnerInfo() {
+    inquirer
+    .prompt(addEngineer)
+    .then((data) => {const engineer = {
         name: data.name,
         id: data.id,
         email: data.email,
-        extraInfo: data.office_num,
-        role: 'Manager'
-    }
-    teamMembers.push(manager);
+        extraInfo: data.github,
+        role: 'Engineer'
+        }
+    teamMembers.push(engineer);
     console.log(teamMembers);
-});
     
-}
-getManagerInfo()
+});   
 
-function getEnginnerInfo() {
-    inquirer.prompt(addEngineer)
 }
+getEnginnerInfo()
 function getInternInfo() {
     inquirer.prompt(addIntern)
 }
