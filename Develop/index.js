@@ -97,6 +97,8 @@ function getManagerInfo() {
             }
         teamMembers.push(manager);
         console.log(teamMembers);
+        getMenu()
+
         }
     )  
 }
@@ -114,6 +116,7 @@ function getEnginnerInfo() {
             }
         teamMembers.push(engineer);
         console.log(teamMembers);
+        getMenu()
         }
     )   
 }
@@ -130,15 +133,31 @@ function getInternInfo() {
             }
         teamMembers.push(intern);
         console.log(teamMembers);
+        getMenu()
         }
     )   
 }
-getInternInfo()
+
 
 function getMenu() {
-    inquirer.prompt(menu)
+    inquirer
+    .prompt(menu)
+    .then((data) => {const choice = data.menu
+        console.log(choice);
+        if (choice === 'Add Engineer') {
+            getEnginnerInfo()
+        }
+        else if (choice === 'Add Intern') {
+            getInternInfo() 
+        }
+        else {
+            console.log('finish');
+        }
+    })
+    
 }
 
 function init() {
 
 }
+getManagerInfo()
