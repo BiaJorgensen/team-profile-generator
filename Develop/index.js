@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 // Loading File System into file
 const fs = require('fs');
+const generatehtml = require('./generatehtml')
 
 // Questions to add a manager
 const addManager = [
@@ -152,12 +153,21 @@ function getMenu() {
         }
         else {
             console.log('finish');
+            writeToFile(teamMembers)
         }
     })
     
 }
 
-function init() {
-
+function writeToFile(teamMembers) {
+    fs.writeFile('./dist/index.html', generatehtml(teamMembers), (err) => {
+        if(err) throw err;
+        console.log('Team Members Profile page has been created');
+    })
 }
-getManagerInfo()
+
+function init() {
+    getManagerInfo()
+}
+
+init()
