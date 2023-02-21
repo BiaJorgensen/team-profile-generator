@@ -2,7 +2,10 @@
 const inquirer = require('inquirer');
 // Loading File System into file
 const fs = require('fs');
-const generatehtml = require('./generatehtml')
+const generatehtml = require('./generatehtml');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern')
 
 // Questions to add a manager
 const addManager = [
