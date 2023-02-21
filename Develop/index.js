@@ -5,7 +5,7 @@ const fs = require('fs');
 const generatehtml = require('./generatehtml');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern')
+const Intern = require('./lib/Intern');
 
 // Questions to add a manager
 const addManager = [
@@ -92,13 +92,7 @@ const teamMembers = [];
 function getManagerInfo() {
     inquirer
     .prompt(addManager)
-    .then((data) => {const manager = {
-            name: data.name,
-            id: data.id,
-            email: data.email,
-            extraInfo: data.office_num,
-            role: 'Manager'
-            }
+    .then((data) => {const manager = new Manager(data.name, data.id, data.email, data.office_num)
         teamMembers.push(manager);
         console.log(teamMembers);
         getMenu()
@@ -111,13 +105,7 @@ function getManagerInfo() {
 function getEnginnerInfo() {
     inquirer
     .prompt(addEngineer)
-    .then((data) => {const engineer = {
-            name: data.name,
-            id: data.id,
-            email: data.email,
-            extraInfo: data.github,
-            role: 'Engineer'
-            }
+    .then((data) => {const engineer = new Engineer(data.name, data.id, data.email, data.github)
         teamMembers.push(engineer);
         console.log(teamMembers);
         getMenu()
@@ -128,13 +116,7 @@ function getEnginnerInfo() {
 function getInternInfo() {
     inquirer.
     prompt(addIntern)
-    .then((data) => {const intern = {
-            name: data.name,
-            id: data.id,
-            email: data.email,
-            extraInfo: data.school,
-            role: 'Intern'
-            }
+    .then((data) => {const intern = new Intern(data.name, data.id, data.email, data.school)
         teamMembers.push(intern);
         console.log(teamMembers);
         getMenu()
