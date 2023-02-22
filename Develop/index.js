@@ -92,7 +92,7 @@ const teamMembers = [];
 function getManagerInfo() {
     inquirer
     .prompt(addManager)
-    .then((data) => {const manager = new Manager(data.name, data.id, data.email, data.office_num)
+    .then(({name, id, email, office_num}) => {const manager = new Manager(name, id, email, office_num)
         teamMembers.push(manager);
         console.log(teamMembers);
         getMenu()
@@ -105,7 +105,7 @@ function getManagerInfo() {
 function getEnginnerInfo() {
     inquirer
     .prompt(addEngineer)
-    .then((data) => {const engineer = new Engineer(data.name, data.id, data.email, data.github)
+    .then(({name, id, email, github}) => {const engineer = new Engineer(name, id, email, github)
         teamMembers.push(engineer);
         console.log(teamMembers);
         getMenu()
@@ -116,7 +116,7 @@ function getEnginnerInfo() {
 function getInternInfo() {
     inquirer.
     prompt(addIntern)
-    .then((data) => {const intern = new Intern(data.name, data.id, data.email, data.school)
+    .then(({name, id, email, school}) => {const intern = new Intern(name, id, email, school)
         teamMembers.push(intern);
         console.log(teamMembers);
         getMenu()
