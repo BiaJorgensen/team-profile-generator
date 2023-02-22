@@ -8,6 +8,9 @@ class Manager extends Employee {
     getRole() {
         return "Manager"
     }
+    getExtraInfo() {
+        return `<p>School: ${this.getSchool()}</p>`
+    }
 }
 
 module.exports = Manager

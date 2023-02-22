@@ -11,6 +11,9 @@ class Intern extends Employee {
     getRole() {
         return "Intern"
     }
+    getExtraInfo() {
+        return `<p>Office #: ${this.officeNumber}</p>`
+    }
 }
 
 module.exports = Intern
