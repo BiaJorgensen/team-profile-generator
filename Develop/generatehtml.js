@@ -12,26 +12,35 @@ function generatehtml(teamMembers) {
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./style.css">
         <title>My Team</title>
     </head>
+
     <body>
-    <div>
-        <header>
+        <header class="mb-4 p-3 text-center">
           <h1>My Team</h1>
         </header>
+        <div class="container">
+      <div class="row">
     ${teamMembers.map(employee => {
       return `
-        <div>
-          <h2>${employee.name}</h2>
-          <h3>${employee.getRole()}</h3>
-            <div>
-              <p>ID: ${employee.id}</p>
-              <p>Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
-              ${employee.getExtraInfo()}
-            </div>
+      
+        <div class="col-md-4 ">
+          <div class="card my-3">
+              <div class="card-header">
+                <h2>${employee.name}</h2>
+                <h3>${employee.getRole()}</h3>
+              </div>
+              <div class="card-body bg-light">
+                <p>ID: ${employee.id}</p>
+                <p>Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
+                ${employee.getExtraInfo()}
+              </div>
           </div>
+      </div>
       `
     }).join("") }
+    </div>
     </div>
     </body>
     </html>`
