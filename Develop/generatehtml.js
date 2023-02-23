@@ -20,7 +20,7 @@ function generatehtml(teamMembers) {
           <h3>${employee.getRole()}</h3>
             <div>
               <p>ID: ${employee.id}</p>
-              <p>Email: ${employee.email}</p>
+              <p>Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
               ${employee.getExtraInfo()}
             </div>
           </div>

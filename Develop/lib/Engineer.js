@@ -12,7 +12,7 @@ class Engineer extends Employee {
         return "Engineer"
     }
     getExtraInfo() {
-        return `<p>GitHub: ${this.getGitHub()}</p>`
+        return `<p>GitHub: <a target="_blank" href="https://github.com/${this.github}">${this.github}</a></p>`
     }
 }
 
