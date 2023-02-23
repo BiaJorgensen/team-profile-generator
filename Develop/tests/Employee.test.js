@@ -3,7 +3,7 @@ const Employee = require('../lib/Employee');
 
 describe('Employee', () => {
     describe('Initialization', () => {
-        it('should construct an object with name, id and email', () => {
+        it('should return an object construction with name, id and email', () => {
             const employee = new Employee('Bia', 1, 'bia@gmail.com');
             expect(employee).toEqual(expect.any(Object));
             expect(employee.name).toEqual('Bia');
