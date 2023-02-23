@@ -8,16 +8,34 @@ describe('Employee', () => {
             expect(employee).toEqual(expect.any(Object));
             expect(employee.name).toEqual('Bia');
             expect(employee.id).toEqual(1);
-            expect(employee.email).toEqual('bia@gmail.com')
-        })
-    })
-})
+            expect(employee.email).toEqual('bia@gmail.com');
+        });
+    });
+});
 
 describe('getName', () => {
-    it("it should return the employe's name", () => {
-        const employee = new Employee('Bia', 01, 'bia@gmail.com');
-        expect(employee.name).toEqual('Bia');
-    })
+    it("it should return the employee's name", () => {
+        const employee = new Employee('Bia', 1, 'bia@gmail.com');
+        expect(employee.getName()).toEqual('Bia');
+    });
+});
 
+describe('getId', () => {
+    it("it should return the employee's id", () => {
+        const employee = new Employee('Bia', 1, 'bia@gmail.com');
+        expect(employee.getId()).toEqual(1);
+    });
+});
 
-})
+describe('getEmail', () => {
+    it("it should return the employee's email", () => {
+        const employee = new Employee('Bia', 1, 'bia@gmail.com');
+        expect(employee.getEmail()).toEqual('bia@gmail.com');
+    });
+});
+describe('getRole', () => {
+    it("it should return 'Employee'", () => {
+        const employee = new Employee('Bia', 1, 'bia@gmail.com');
+        expect(employee.getRole()).toEqual('Employee');
+    });
+});
