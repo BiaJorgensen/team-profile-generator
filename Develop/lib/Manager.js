@@ -9,7 +9,7 @@ class Manager extends Employee {
         return "Manager"
     }
     getExtraInfo() {
-        return `<p>School: ${this.getSchool()}</p>`
+        return `<p>Office #: ${this.officeNumber}</p>`
     }
 }
 

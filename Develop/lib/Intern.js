@@ -12,7 +12,7 @@ class Intern extends Employee {
         return "Intern"
     }
     getExtraInfo() {
-        return `<p>Office #: ${this.officeNumber}</p>`
+        return `<p>School #: ${this.school}</p>`
     }
 }
 

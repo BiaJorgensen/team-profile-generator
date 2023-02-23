@@ -9,7 +9,24 @@ function generatehtml(teamMembers) {
         <title>Document</title>
     </head>
     <body>
-      
+    <div>
+        <header>
+          <h1>My Team</h1>
+        </header>
+    ${teamMembers.map(employee => {
+      return `
+        <div>
+          <h2>${employee.name}</h2>
+          <h3>${employee.getRole()}</h3>
+            <div>
+              <p>ID: ${employee.id}</p>
+              <p>Email: ${employee.email}</p>
+              ${employee.getExtraInfo()}
+            </div>
+          </div>
+      `
+    }).join("") }
+    </div>
     </body>
     </html>`
 
