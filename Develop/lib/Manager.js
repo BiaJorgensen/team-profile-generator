@@ -1,3 +1,4 @@
+// Loading Employee class
 const Employee = require('./Employee');
 
 class Manager extends Employee {
@@ -9,7 +10,7 @@ class Manager extends Employee {
         return "Manager"
     }
     getExtraInfo() {
-        return `<p>Office #: ${this.officeNumber}</p>`
+        return `<p>Office # : ${this.officeNumber}</p>`
     }
 }
 
