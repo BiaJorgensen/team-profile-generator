@@ -2,7 +2,9 @@
 const inquirer = require('inquirer');
 // Loading File System into file
 const fs = require('fs');
+// Loading generatehtml.js into file
 const generatehtml = require('./generatehtml');
+// Loading Manager.js, Inter.js and Enginner.js into file
 const {Manager, Intern, Engineer} = require('./lib')
 
 // Questions to add a manager
@@ -11,6 +13,7 @@ const addManager = [
         type: "input",
         name : "name",
         message: "What is the team manager's name?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the team manager's name"
@@ -21,6 +24,7 @@ const addManager = [
         type: "input",
         name : "id",
         message: "What is the team manager's ID?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the team manager's ID"
@@ -32,6 +36,7 @@ const addManager = [
         type: "input",
         name : "email",
         message: "What is the team manager's email address?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the team manager's email address"
@@ -42,7 +47,8 @@ const addManager = [
     {
         type: "input",
         name : "office_num",
-        message: "What is the team manager's office number?", 
+        message: "What is the team manager's office number?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the team manager's office number"
@@ -58,6 +64,7 @@ const addEngineer = [
         type: "input",
         name : "name",
         message: "What is the Engineer's name?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Engineer's name"
@@ -68,6 +75,7 @@ const addEngineer = [
         type: "input",
         name : "id",
         message: "What is the Engineer's ID?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Engineer's ID"
@@ -79,6 +87,7 @@ const addEngineer = [
         type: "input",
         name : "email",
         message: "What is the Engineer's email address?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Engineer's email address"
@@ -90,6 +99,7 @@ const addEngineer = [
         type: "input",
         name : "github",
         message: "What is the Engineer's GitHub username?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Engineer's GitHub username"
@@ -105,6 +115,7 @@ const addIntern = [
         type: "input",
         name : "name",
         message: "What is the Intern's name?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Intern's name"
@@ -115,6 +126,7 @@ const addIntern = [
         type: "input",
         name : "id",
         message: "What is the Intern's ID?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Intern's ID"
@@ -126,6 +138,7 @@ const addIntern = [
         type: "input",
         name : "email",
         message: "What is the Intern's email address?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Intern's email address"
@@ -137,6 +150,7 @@ const addIntern = [
         type: "input",
         name : "school",
         message: "What is the Intern's school name?",
+        // Validating to make sure input is not blank
         validate: function(input) {
             if(input == "") {
                 return "Please enter the Intern's school name"
@@ -154,49 +168,47 @@ const menu = {
     choices: ['Add Engineer', 'Add Intern', 'Finish building my team']
 }
 
+// Variable to house the new team members' info
 const teamMembers = [];
 
+// Function to ask for manager's info in CLI and push it into teamMembers array
 function getManagerInfo() {
     inquirer
     .prompt(addManager)
     .then(({name, id, email, office_num}) => {const manager = new Manager(name, id, email, office_num)
         teamMembers.push(manager);
-        console.log(teamMembers);
         getMenu()
-
         }
     )  
 }
 
-
+// Function to ask for engineer's info in CLI and push it into teamMembers array
 function getEnginnerInfo() {
     inquirer
     .prompt(addEngineer)
     .then(({name, id, email, github}) => {const engineer = new Engineer(name, id, email, github)
         teamMembers.push(engineer);
-        console.log(teamMembers);
         getMenu()
         }
     )   
 }
 
+// Function to ask for intern's info in CLI and push it into teamMembers array
 function getInternInfo() {
     inquirer.
     prompt(addIntern)
     .then(({name, id, email, school}) => {const intern = new Intern(name, id, email, school)
         teamMembers.push(intern);
-        console.log(teamMembers);
         getMenu()
         }
     )   
 }
 
-
+// Function to ask if user wnats to add more team members or finish creating the team
 function getMenu() {
     inquirer
     .prompt(menu)
     .then((data) => {const choice = data.menu
-        console.log(choice);
         if (choice === 'Add Engineer') {
             getEnginnerInfo()
         }
@@ -204,13 +216,13 @@ function getMenu() {
             getInternInfo() 
         }
         else {
-            console.log('finish');
             writeToFile(teamMembers)
         }
     })
     
 }
 
+// Function to write the HTML using structure in generatehtml
 function writeToFile(teamMembers) {
     fs.writeFile('./dist/index.html', generatehtml(teamMembers), (err) => {
         if(err) throw err;
@@ -218,6 +230,7 @@ function writeToFile(teamMembers) {
     })
 }
 
+// Function to initialize app
 function init() {
     getManagerInfo()
 }
