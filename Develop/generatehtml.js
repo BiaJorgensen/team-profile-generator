@@ -20,7 +20,7 @@ function generatehtml(teamMembers) {
         <header class="mb-4 p-3 text-center">
           <h1>My Team</h1>
         </header>
-        <div class="container">
+        <div class="container d-flex justify-content-center">
       <div class="row">
     ${teamMembers.map(employee => {
       return `
