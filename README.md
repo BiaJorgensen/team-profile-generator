@@ -21,7 +21,7 @@ To create an HTML file with a Team Profile using this app, user needs to do the 
 
 ## Tests
 
-To run the tests on the tests folder, in the CLI, type `npm run test`
+To run the tests in the tests folder, in the CLI, type `npm run test`. All tests should pass.
 
 ## Credits
 
