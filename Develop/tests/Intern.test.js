@@ -30,6 +30,6 @@ describe('getRole', () => {
 describe('getExtraInfo', () => {
     it("should return an HTML <p> with the intern's school", () => {
         const intern = new Intern('Bia', 1, 'bia@gmail.com', 'UofM');
-        expect(intern.getExtraInfo()).toEqual('<p>School #: UofM</p>');
+        expect(intern.getExtraInfo()).toEqual('<p>School: UofM</p>');
     });
 })

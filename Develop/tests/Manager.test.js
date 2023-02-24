@@ -23,6 +23,6 @@ describe('getRole', () => {
 describe('getExtraInfo', () => {
     it("should return an HTML <p> with manager's office number", () => {
         const manager = new Manager ('Bia', 1, 'bia@gmail.com', 1);
-        expect(manager.getExtraInfo()).toEqual('<p>Office #: 1</p>');
+        expect(manager.getExtraInfo()).toEqual('<p>Office # : 1</p>');
     });
 });
